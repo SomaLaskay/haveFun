@@ -1,0 +1,35 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 id="myText" class="display-4" onmouseover="newFace()" onmouseout="oldFace()">Welcome</h1>
+    <p class="firstLine">Have fun with us!</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/zFmw795XKu4?si=lx9iDRddPfCYpebC"
+            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+    </iframe>
+    <br>
+    
+</div>
+
+<div id="animate" style="width:50px; height:50px; background-color:red; position:absolute;"></div>
+
+<script>
+    function moveRight() {
+        var elem = document.getElementById("animate");
+        var pos = 0;
+        var id = setInterval(frame, 7);
+        function frame() {
+            if (pos == 350) {
+                clearInterval(id);
+            } else {
+                pos++;
+                elem.style.left = pos + 'px';
+            }
+        }
+    }
+    moveRight();
+</script>
